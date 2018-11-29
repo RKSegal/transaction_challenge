@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rachel
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - 27017:27017
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - 1984:1984
+    environment:
+      PORT: 1984
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: example
+      MONGODB_URI: mongodb://rachel:password@localhost:27017/interview_challenge
