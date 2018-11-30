@@ -14,22 +14,18 @@ const TransactionSchema = new Schema({
     },
     name: {
         type:  Schema.Types.String,
-        lowercase: true
+        lowercase: true,
+        required: true
     },
     amount: {
-        type:  Schema.Types.Number
+        type:  Schema.Types.Number,
+        required: true
     },
     createdAt: {
         type: Schema.Types.Date
     },
     date: {
-        type: Schema.Types.Date
-    },
-    transaction: {
-        type: Schema.Types.Boolean
-    },
-    price: {
-        type: Schema.Types.Number, 
+        type: Schema.Types.Date,
         required: true
     }
 });

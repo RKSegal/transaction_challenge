@@ -1,3 +1,6 @@
+
+const Transaction = require('../models/transaction');
+
 exports.transaction_create = function (req, res) {
     let transaction = new Transaction(
         {
