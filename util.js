@@ -48,7 +48,7 @@ module.exports.sendUpsertReq = function(transArr) {
         removeRecIdentifiers(transArr);
         console.log(`Sending following transactions to server: ${JSON.stringify(transArr)}`);
         let request = transArr;
-        httpRequester.post("http://localhost:1984/", {json: request}, (err, response) => {
+        httpRequester.post("http://localhost:1984/transactions", {json: request}, (err, response) => {
             console.log(`Processing HTTP response: ` + JSON.stringify(response));
             if (err) {
                 reject(err);
@@ -224,7 +224,8 @@ function processRespData(data, resolve) {
 /*
  * Pulls the curring transactions from the resopnse and filters down to results from the current session
  */
-function pullRecTrans(recTransArr) {
+function pullRecTrans(response) {
+    const recTransArr = response.body && Array.isArray(response.body) ? response.body : response;
     return recTransArr.filter(recElem => recElem.user_id.split("-")[0] === SESSION_ID);
 }
 

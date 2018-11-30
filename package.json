@@ -4,13 +4,17 @@
   "description": "Code for testing the BE coding challenge",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seed/transactions.js"
   },
   "author": "Rachel Segal",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "joi": "^14.3.0",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.14"
   },
   "devDependencies": {

@@ -11,14 +11,14 @@ const
 /*
  * Tests monthly recurring transactions
  */
-module.exports.testMonthlyRec = async function(userId, companyName, suffixType="PLAIN", transAmt, numTrans=MIN_REC_TRANS_NUM) {
+module.exports.testMonthlyRec = async function(user_id, companyName, suffixType="PLAIN", transAmt, numTrans=MIN_REC_TRANS_NUM) {
     let date = new Date();
     date.setDate(date.getDate() - START_NUM_DAYS);
     let transPrefix = uniqid();
 
     let transArr = [];
     for (let i = 0; i < numTrans; i++) {
-        transArr.push(testUtil.createTrans(transPrefix, userId, companyName, transAmt, date, true));
+        transArr.push(testUtil.createTrans(transPrefix, user_id, companyName, transAmt, date, true));
         date.setMonth(date.getMonth() - 1);
     }
     

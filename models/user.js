@@ -36,5 +36,4 @@ const UserSchema = new Schema({
     timestamps: true // this will assign createdAt and updatedAt fields to the user schema,
 });
 
-
 module.exports = mongoose.model('User', UserSchema);

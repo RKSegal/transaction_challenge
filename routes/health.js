@@ -1,3 +1,3 @@
-exports.health = function (req, res) {
-    res.send({ code: 'ok' });
+module.exports = function (req, res) {
+    return res.send({ code: 'ok' }).code(200);
 };
